@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Link -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <!-- bootstrap css link-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        crossorigin="anonymous">
+    <link rel='stylesheet' href='style.css' />
+    <title>Dynamic Form</title>
+</head>
+
+<body>
+    <div class="testbox">
+      <form action="/country" method="POST">
+        <div class="banner">
+          <h1>Dynamic Country List</h1>
+        </div>
+        <div class='col-12 dropdown'>
+            <label for="country">Choose a Country : </label>
+            <select name="country" id="country">
+                <option value="" selected readonly>Select</option>
+                {{#each countriesList}}
+                    <option value={{id}}>{{name}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="colums" class="details" id="details">            
+          <div class="item">
+            <label for="id">Id</label>
+            <input id="id" type="number" name="id" value="" readonly/>
+          </div>
+          <div class="item">
+            <label for="code">Code</label>
+            <input id="code" type="text" name="code" value="" readonly/>
+          </div>
+          <div class="item">
+            <label for="name">Name</label>
+            <input id="name" type="text" name="name" value="" readonly/>
+          </div>
+          <div class="item class hide" id="class-wrapper">
+            <label for="class">Class Name</label>
+            <input id="class" type="text" name="class" value="" readonly disabled/>
+          </div>
+          <div class="item">
+            <label for="nativeName">Native Name</label>
+            <input id="nativeName" type="text" name="nativeName" value="" readonly/>
+          </div>
+        </div>
+        <div class="btn-block">
+          <button type="btn" class="btn btn-success disabled" id="submit-button" disabled>Submit</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- vebdor js links-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
